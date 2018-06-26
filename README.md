@@ -4,6 +4,7 @@
 
 * [Instructions](#instructions)
 * [Preview](#preview)
+* [Demo](#demo)
 
 ## Instructions
 
@@ -19,3 +20,9 @@ Follow the instructions as below:
 
 
 ![Pixel Art Maker Preview](preview.png)
+
+
+## Demo
+
+You can try it here:
+https://emartsoft.github.io/alc-pixel-maker/
