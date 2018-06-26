@@ -14,6 +14,7 @@ Follow the instructions as below:
     2. Click on Submit to draw the grid. 
     2. Choose a color.
     3. Click a cell in the grid to fill that cell with the chosen color.
+    4. Clicking on reset will remove the grid
 
 
 ## Preview
