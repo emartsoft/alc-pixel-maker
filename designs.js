@@ -1,10 +1,10 @@
 // When size is submitted by the user, call makeGrid()
 $('#sizePicker').submit(function (event) {
     event.preventDefault();
-    const gridHeight = $('#inputHeight').val();
-    const gridWidth = $('#inputWeight').val();
+    const height = $('#inputHeight').val();
+    const width = $('#inputWeight').val();
 
-    makeGrid(gridHeight, gridWidth);
+    makeGrid(height, width);
 });
 
 // Function to create the grid
