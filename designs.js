@@ -1,40 +1,40 @@
-// Select color input
-// Select size input
+// When size is submitted by the user, call makeGrid()
+$('#sizePicker').submit(function (event) {
+    event.preventDefault();
+    const gridHeight = $('#inputHeight').val();
+    const gridWidth = $('#inputWeight').val();
 
-let sizePicker = document.getElementById("sizePicker");
-let color = document.getElementById("colorPicker");
-let canvas = document.getElementById("pixelCanvas");
-let height = document.getElementById("inputHeight");
-let weight = document.getElementById("inputWeight");
-
-color.addEventListener("click", function () {});
+    makeGrid(gridHeight, gridWidth);
+});
 
 // Function to create the grid
-function makeGrid() {
-    for (let x = 0; x < height.value; x++) {
-        const row = canvas.insertRow(x);
-        for (let y = 0; y < weight.value; y++) {
-            const cell = row.insertCell(y);
-            cell.addEventListener("click", fillSquare);
+function makeGrid(gridHeight, gridWidth) {
+    $('tr').remove();
+    for (let row = 1; row <= gridHeight; row++) {
+        $('#pixelCanvas').append('<tr></tr>');
+        for (let column = 1; column <= gridWidth; column++) {
+            $('tr').filter(':last').append('<td></td>');
         }
     }
+    fillCellColor();
 }
 
-// When size is submitted by the user, call makeGrid()
-sizePicker.onsubmit = function (event) {
+// Clear and reset the grid
+$('#reset').click(function (event) {
     event.preventDefault();
-    clearGrid();
-    makeGrid();
-};
+    $('#pixelCanvas').find('tr').remove();
+});
 
-// Clear the grid
-function clearGrid() {
-    while (canvas.firstChild) {
-        canvas.removeChild(canvas.firstChild);
-    }
-}
-
-// Function to apply the styling color to the grid
-function fillSquare() {
-    this.setAttribute("style", `background-color: ${color.value}`);
+//Fill the cells with color when click event is registered
+function fillCellColor() {
+    const cell = $('td');
+    cell.click(function () {
+        const color = $('#colorPicker').val();
+        //Add or remove style color if it's been set or not
+        if ($(this).attr('style')) {
+            $(this).removeAttr('style');
+        } else {
+            $(this).attr('style', 'background-color:' + color);
+        }
+    });
 }
